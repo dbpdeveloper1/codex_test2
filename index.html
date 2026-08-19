@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Test Page</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 1.5rem;
+      color: #172033;
+      background: linear-gradient(135deg, #eef2ff, #f8fafc 55%, #ecfeff);
+    }
+
+    main {
+      width: min(100%, 42rem);
+      padding: clamp(2rem, 6vw, 4rem);
+      text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #dbe4f0;
+      border-radius: 1.5rem;
+      box-shadow: 0 1.5rem 4rem rgba(30, 41, 59, 0.14);
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.4rem 0.8rem;
+      color: #3730a3;
+      background: #e0e7ff;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 8vw, 4.5rem);
+      line-height: 1;
+    }
+
+    p {
+      margin: 1.25rem auto 0;
+      max-width: 32rem;
+      color: #526078;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.85rem 1.3rem;
+      border: 0;
+      border-radius: 0.75rem;
+      color: white;
+      background: #4f46e5;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 150ms ease, background 150ms ease;
+    }
+
+    button:hover { background: #4338ca; transform: translateY(-2px); }
+    button:focus-visible { outline: 3px solid #a5b4fc; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="badge">Ready to test</span>
+    <h1>Hello, world!</h1>
+    <p>This lightweight HTML page is running successfully. Use the button below to verify that JavaScript interactions work too.</p>
+    <button id="test-button" type="button">Test interaction</button>
+  </main>
+  <script>
+    const button = document.querySelector('#test-button');
+    button.addEventListener('click', () => {
+      button.textContent = 'It works!';
+      button.setAttribute('aria-label', 'Interaction test succeeded');
+    });
+  </script>
+</body>
+</html>
